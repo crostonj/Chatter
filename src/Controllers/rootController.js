@@ -1,17 +1,18 @@
 module.exports = rootController =
-    function (rootService) {
+    function(rootService) {
         return {
-
-            middleware: middleware = function (req, res, next) {
+            middleware: middleware = function(req, res, next) {
                 //Secure all routes
-                if (!req.user) {
-                    //    res.redirect('/');
-                }
+                //if (!req.user) {
+                //    res.redirect('/');
+                //}
                 next();
             },
-            get: get = function (req, res) {
 
+
+            get: get = function(req, res) {
+                res.render('index', rootService.getUserProfile());
             }
 
-        }
-    }
+        };
+    };

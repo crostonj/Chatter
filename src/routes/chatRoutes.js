@@ -10,12 +10,12 @@ module.exports = router =
         return {
             route: route = function () {
                 chatRouter.route('/')
-                    .get(function (req, res) {
-                         res.render('chat');
-                    });
+                    .get(chatController.get);
+
+                chatRouter.route('/send')
+                    .post(chatController.send);
 
                 return chatRouter;
-
             }
-        }
-    }
+        };
+    };

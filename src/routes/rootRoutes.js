@@ -1,20 +1,21 @@
 var express = require('express');
-var rootRouter = express.Router();
 
 module.exports = router =
-    function () {
-        var rootService = require('../Services/rootService')();
-        var rootController = require('../Controllers/rootController')(rootService);
-        rootRouter.use(rootController.middleware);
+    function() {
+
+        var rootRouter = express.Router();
 
         return {
-            route: route = function () {
+            route: route = function() {
+
+                var rootService = require('../Services/rootService')();
+                var rootController = require('../Controllers/rootController')(rootService);
+                rootRouter.use(rootController.middleware);
+
                 rootRouter.route('/')
-                    .get(function (req, res) {
-                        res.render('index');
-                    });
+                    .get(rootController.get);
 
                 return rootRouter;
             }
-        }
-    }
+        };
+    };

@@ -4,8 +4,7 @@ module.exports = chatService =
             getChatMessages: getChatMessages = function(id){
                 return{
                     message:  "Hello"
-                }
-
+                };
             }
-        }    
-    }
+        };
+    };
